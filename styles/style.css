@@ -6,14 +6,15 @@
 
 html {
   block-size: 100%;
+
 }
 
 .page {
   display: flex;
   justify-content: center;
+  align-items: center;
   block-size: 100%;
-  max-height: 800px;
-  margin: 133px 30px;
+  margin: 0px 30px;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -67,12 +68,13 @@ ol {
   width: 100%;
   max-width: 711px;
   height: auto;
-  margin-top: 78px;
+  margin-top: 76px;
 }
 
 .result__video {
   width: 100%;
   height: 100%;
+  max-height: 386px;
   object-fit: cover;
 }
 
@@ -83,14 +85,11 @@ ol {
 .search-form {
   display: grid;
   grid-template-columns: 5fr 5fr 4fr;
+  margin-top: 14px;
 }
 
 .search-form__fieldset {
   border: none;
-}
-
-input[type="text"] {
-  color: #fff;
 }
 
 .search-form__label, .search-form__pseudo-checkbox, .search-form__submit-button {
@@ -98,7 +97,8 @@ input[type="text"] {
 }
 
 .search-form__fieldset-title, .search-form__label-text, .search-form__textfield {
-  font-family: Fira Sans Condensed;
+  color: #fff;
+  font-family: "Fira Sans Condensed", "Arial sans";
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
@@ -141,13 +141,16 @@ input[type="text"] {
   padding: 1px;
 }
 
-input[type='checkbox']:checked + .search-form__pseudo-checkbox {
+.search-form__checkbox:checked + .search-form__pseudo-checkbox {
+  /*вы написали что это не требуется - но тут я делаю подсветчивание чекбокса при его нажатии
+  изменил input[type=checkbox] на класс*/
   background-color: #FFFFFF;
   background-clip: content-box;
 }
 
-input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
-  box-shadow: 0 0 0 5px rgb(254 175 232 / 0.5);
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .search-form__label:not(:first-child) .search-form__pseudo-checkbox{
@@ -160,11 +163,15 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
   align-items: end;
 }
 
+.search-form__submit-button {
+  margin-left: 9px;
+  margin-top: 18px;
+}
+
 .button {
   width: 100%;
-  height: 100%;
   max-width: 194px;
-  max-height: 34px;
+  min-height: 34px;
   background-color: transparent;
   border: #fff solid 1px;
   font-family: Fira Sans Condensed;
@@ -175,6 +182,10 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
   letter-spacing: 0em;
   text-align: center;
   cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button:active {
@@ -194,6 +205,7 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
   line-height: 70.5px;
   text-transform: uppercase;
   margin-top: 2px;
+  margin-bottom: 22px;
 }
 
 .content__accent {
@@ -201,22 +213,18 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
 }
 
 .content__list {
-  max-height: 322px;
+  max-height: 300px;
   width: 100%;
   overflow: auto;
   scrollbar-gutter: stable;
-  /*margin-top: 24px;*/
-}
-
-.content__list > li:first-child {
-  margin-top: 24px;
+  padding-top: 2px;
 }
 
 .content__list-item {
   min-height: 103px;
 }
 
-.content__list-item:not(:last-child) {
+.content__list-item {
   margin-bottom: 34.5px;
 }
 
@@ -235,6 +243,9 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
   text-transform: uppercase;
   margin-top: 2px;
   margin-bottom: 4px;
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content__video-card-description {
@@ -244,15 +255,13 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
-}
-
-.content__video-card-description-container {
-  flex-grow: 1;
+  white-space: normal;
+  max-width: 190px;
 }
 
 .content__video-card {
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
   padding-left: 2px;
   padding-right: 3px;
 }
@@ -261,20 +270,24 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
   width: 100%;
   max-width: 194px;
   max-height: 103px;
+  object-fit: cover;
 }
 
-.content__card-link_current > .content__video-card {
+.content__card-link > .content__video-card {
   position: relative;
-  /*background-color: #666; !* Задайте цвет фона *!*/
-  margin-top: -1px; /* Заходим за границу вверх на 2 пикселя */
+  margin-top: -1px;
   padding-top: 1px;
-  margin-bottom: -1px; /* Заходим за границу вниз на 2 пикселя */
+  margin-bottom: -1px;
   padding-bottom: 1px;
-  /*overflow: hidden; !* Обрезать фон за границами блока *!*/
   z-index: -1;
 }
 
-.content__card-link_current > .content__video-card::before {
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link_current > .content__video-card::before,
+.content__card-link:active > .content__video-card::before{
   content: "";
   position: absolute;
   top: -1px;
@@ -286,34 +299,33 @@ input[type='checkbox']:focus-visible + .search-form__pseudo-checkbox {
 }
 
 .more-button {
-  height: 34px;
+
   width: 100%;
   max-width: 100%;
   margin-bottom: 2px;
 }
 
-.search-form__checkbox-list > .search-form__label:hover > .search-form__label-text, .button:hover,
-.content__list-item:hover {
+.search-form__label:hover > .search-form__label-text, .button:hover{
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-input:focus {
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.search-form__label:focus {
   outline: none;
 }
 
-input:focus-visible, .button:focus-visible {
+.search-form__label:focus-visible, .search-form__textfield:focus-visible, .button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 3px;
 }
 
-.content__card-link:focus-visible {
-  outline: none;
-  .content__video-card {
-    margin: 2px;
-    outline: 1px solid #fff;
-    outline-offset: 1px;
-  }
+.content__card-link:focus-visible > .content__video-card {
+  margin: 2px;
+  outline: 1px solid #fff;
 }
 
