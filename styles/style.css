@@ -67,14 +67,15 @@ ol {
 .result__video-container {
   width: 100%;
   max-width: 711px;
-  height: auto;
-  margin-top: 76px;
+  height: 100%;
+  max-height: 386px;
+  margin-top: 79px;
 }
 
 .result__video {
   width: 100%;
   height: 100%;
-  max-height: 386px;
+  /*max-height: 386px;*/
   object-fit: cover;
 }
 
@@ -85,7 +86,7 @@ ol {
 .search-form {
   display: grid;
   grid-template-columns: 5fr 5fr 4fr;
-  margin-top: 14px;
+  margin-top: 18px;
 }
 
 .search-form__fieldset {
@@ -98,7 +99,7 @@ ol {
 
 .search-form__fieldset-title, .search-form__label-text, .search-form__textfield {
   color: #fff;
-  font-family: "Fira Sans Condensed", "Arial sans";
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
@@ -142,8 +143,6 @@ ol {
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox {
-  /*вы написали что это не требуется - но тут я делаю подсветчивание чекбокса при его нажатии
-  изменил input[type=checkbox] на класс*/
   background-color: #FFFFFF;
   background-clip: content-box;
 }
@@ -174,7 +173,7 @@ ol {
   min-height: 34px;
   background-color: transparent;
   border: #fff solid 1px;
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   color: #fff;
   font-size: 18px;
   font-weight: 700;
@@ -198,7 +197,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald ;
+  font-family: Oswald, Arial, sans-serif;
   font-size: 75px;
   color: #fff;
   font-weight: 700;
@@ -224,7 +223,7 @@ ol {
   min-height: 103px;
 }
 
-.content__list-item {
+.content__list-item:not(:last-child) {
   margin-bottom: 34.5px;
 }
 
@@ -234,7 +233,7 @@ ol {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: Oswald, Arial, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
@@ -249,7 +248,7 @@ ol {
 }
 
 .content__video-card-description {
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16px;
@@ -299,10 +298,8 @@ ol {
 }
 
 .more-button {
-
   width: 100%;
   max-width: 100%;
-  margin-bottom: 2px;
 }
 
 .search-form__label:hover > .search-form__label-text, .button:hover{
@@ -315,11 +312,11 @@ ol {
   text-decoration: underline;
 }
 
-.search-form__label:focus {
+.search-form__textfield:focus {
   outline: none;
 }
 
-.search-form__label:focus-visible, .search-form__textfield:focus-visible, .button:focus-visible {
+.button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 3px;
 }
