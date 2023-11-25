@@ -64,9 +64,13 @@
               </label>
             </div>
           </fieldset>
-          <button type="submit" class="button search-form__submit-button">
-            Найти
-          </button>
+          <div class="button-container">
+<!--            сделал обертку кнопки, тк разбил поиск на грид и кнопка заполняет всю область-->
+<!--            search-form__submit-button мне не понадобился-->
+            <button type="submit" class="button">
+              Найти
+            </button>
+          </div>
         </form>
       </section>
       <section class="content__details">
@@ -106,7 +110,7 @@
       </li>
     </template>
     <template class="more-button-template">
-      <li><button class="button more-button">Показать еще</button></li>
+      <li><button class="button more-button">Показать ещё</button></li>
     </template>
 
     <template class="error-template">
