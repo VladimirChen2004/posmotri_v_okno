@@ -3,6 +3,4 @@
 https://github.com/VladimirChen2004/posmotri_v_okno.git
 
 
-Спасибо за подсказку про блочную ссылку, учту на будущее
-Я в брифе пропустил видимо, теперь буду знать. 
-благодарю
+scrollbar-gutter: stable; убран
