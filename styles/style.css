@@ -215,7 +215,6 @@ ol {
   max-height: 300px;
   width: 100%;
   overflow: auto;
-  scrollbar-gutter: stable;
   padding-top: 2px;
 }
 
