@@ -2,5 +2,4 @@
 Проект "Посмотри в окно"
 https://github.com/VladimirChen2004/posmotri_v_okno.git
 
-
-scrollbar-gutter: stable; убран
+спасибо за замечание и правда не обратил на это внимание
